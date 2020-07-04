@@ -1,7 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Intern = require('./lib/Intern');
-
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const card = require('./src/card.js')
+const body = require('./src/body.js')
 const teamData= [];
 
 const tmPrompt = () => {
@@ -48,7 +51,7 @@ const engPrompt = () => {
      inquirer.prompt([
         {
             type: 'input',
-            name: 'eng-name',
+            name: 'engName',
             message: 'What is the name of the engineer?',
             //validate
         },
@@ -142,6 +145,10 @@ const menuPrompt = () => {
         //create a print function for the data.
         if (res.addTeamMember === "Everyone is here") {
             console.log(teamData)
+
+
+            // generateCard();
+            // gernerateBody();
         }
     })
     

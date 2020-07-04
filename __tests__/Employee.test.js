@@ -13,20 +13,20 @@ test('gets the name of the employee', () => {
     expect(employee.getName()).toBe('Gary')
 })
 
-getId();
+// getId();
 test('gets the Id of the employee', () => {
-    const employee = new Employee(5);
-    expect(employee.getId()).toEqual(expect.any(Number))
+    const employee = new Employee('', 7, '');
+    expect(employee.getId()).toEqual(7)
 })
 
 // getEmail()
 test('gets the Email of the employee', () => {
-    const employee = new Employee('gary@sample.com');
-    expect(employee.getEmail()).toBe('gary@sample.com')
+    const employee = new Employee('', '', 'sue@sample.com');
+    expect(employee.getEmail()).toBe('sue@sample.com')
 })
 
 // getRole()
 test('gets the role of the employee', () => {
-    const employee = new Employee('Employee');
-    expect(employee.getRole()).toBe('employee')
+    const employee = new Employee();
+    expect(employee.getRole()).toBe('Employee')
 })
