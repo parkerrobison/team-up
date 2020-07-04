@@ -12,5 +12,5 @@ test('gets the name of the intern', () => {
 })
 
 test('gets the role of the intern', () => {
-    expect(intern.getRole()).toBe('intern')
+    expect(intern.getRole()).toBe('Intern')
 })

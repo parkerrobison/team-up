@@ -12,5 +12,5 @@ test('gets the name of the manager', () => {
 })
 
 test('gets the role of the manager', () => {
-    expect(manager.getRole()).toBe('manager')
+    expect(manager.getRole()).toBe('Manager')
 })

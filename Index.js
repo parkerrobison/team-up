@@ -75,11 +75,11 @@ const engPrompt = () => {
         }
     ]
     ).then(function(engRes){
-        let name = engRes.name;
+        let engName = engRes.engName;
         let engId = engRes.engId;
         let engEmail = engRes.engEmail;
         let github = engRes.github;
-        const engineer = new Engineer (name, engId, engEmail, github)
+        const engineer = new Engineer (engName, engId, engEmail, github)
         teamData.push(engineer);
         menuPrompt();
     })
