@@ -13,25 +13,49 @@ const tmPrompt = () => {
             type: 'input',
             name: 'tmName',
             message: 'What is the name of the Team Manager?',
-            //validate
+            validate: tmNameInput => {
+                if (tmNameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the team manager\'s name.')
+                }
+            }
         },
         {
             type: 'number',
             name: 'tmId',
             message: 'What is the employee id of the Team Manager?',
-            //validate
+            validate: tmIdInput => {
+                if (tmIdInput) {
+                    return true;
+                } else {
+                    console.log('Please enter team manager\'s employee id.')
+                }
+            }
         },
         {
             type: 'input',
             name: 'tmEmail',
             message: 'What is their email address?',
-            //validate
+            validate: tmEmailInput => {
+                if (tmEmailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the team manager\'s email.')
+                }
+            }
         },
         {
-            type: 'number',
+            type: 'input',
             name: 'office',
             message: 'What is their office number?',
-            //validate
+            validate: officeInput => {
+                if (officeInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the team manager\'s office number.')
+                }
+            }
         } 
     ]
     ).then(function(tmRes){
@@ -53,25 +77,49 @@ const engPrompt = () => {
             type: 'input',
             name: 'engName',
             message: 'What is the name of the engineer?',
-            //validate
+             validate: engNameInput => {
+                if (engNameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the name of the engineer.')
+                }
+            }
         },
         {
             type: 'number',
             name: 'engId',
             message: 'What is the employee id of the engineer?',
-            //validate
+             validate: engIdInput => {
+                if (engIdInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the engineer\'s employee id.')
+                }
+            }
         },
         {
             type: 'input',
             name: 'engEmail',
             message: 'What is their email address?',
-            //validate
+             validate: engEmailInput => {
+                if (engEmailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the engineer\'s email address.')
+                }
+            }
         },
         {
             type: 'input',
             name: 'github',
             message: 'What is their github username?',
-            //validate
+             validate: ghInput => {
+                if (ghInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the engineer\'s github username.')
+                }
+            }
         }
     ]
     ).then(function(engRes){
@@ -92,25 +140,49 @@ const intPrompt = () => {
             type: 'input',
             name: 'intName',
             message: 'What is the name of the intern?',
-            //validate
+            validate: intNameInput => {
+                if (intNameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the intern\'s name.')
+                }
+            }
         },
         {
             type: 'number',
             name: 'intId',
             message: 'What is the employee id of the intern?',
-            //validate
+             validate: intIdInput => {
+                if (intIdInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the intern\'s employee id.')
+                }
+            }
         },
         {
             type: 'input',
             name: 'intEmail',
             message: 'What is their email address?',
-            //validate
+             validate: intEmailInput => {
+                if (intEmailInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the intern\'s email address.')
+                }
+            }
         },
         {
             type: 'input',
             name: 'school',
             message: 'What school are they attending?',
-            //validate
+             validate: schoolInput => {
+                if (schoolInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the school the intern is attending.')
+                }
+            }
         }
     ]
     ).then(function(intRes){
@@ -148,7 +220,7 @@ const menuPrompt = () => {
 
 
             // generateCard();
-            // gernerateBody();
+            // generateBody();
         }
     })
     

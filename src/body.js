@@ -1,4 +1,4 @@
-function gernerateBody(card) {
+function generateBody(card) {
     return `
     <!DOCTYPE html>
 <html lang="en">
