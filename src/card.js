@@ -1,10 +1,12 @@
 function generateCard(employee) {
-    return 
-    `
+    return `
     <div class="card" style="width: 18rem;">
             <div class="bg-primary text-white card-body">
-                <h5 class="card-title">${employee.getName}</h5>
-                <p class="card-text">${employee.getRole()}</p>
+                <h4 class="card-title">${employee.getName}</h4>
+                <h3 class="card-text">
+                <i class=${employee.getRole() === "Manager" ? "fas fa-mug-hot" : 
+                employee.getRole() === "Engineer" ? "fas fa-glasses": "fas fa-user-graduate"}></i>
+                 ${employee.getRole()}</h3>
             </div>
             <div class="card-body">
                 <ul class="list-group border list-group-flush">
