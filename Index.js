@@ -37,6 +37,7 @@ const tmPrompt = () => {
         let tmEmail = tmRes.tmEmail;
         let office = tmRes.office;
         const manager = new Manager (tmName, tmId, tmEmail, office)
+        teamData.push(manager);
         menuPrompt(); 
     })
     
@@ -76,8 +77,7 @@ const engPrompt = () => {
         let engEmail = engRes.engEmail;
         let github = engRes.github;
         const engineer = new Engineer (name, engId, engEmail, github)
-        //add to global data
-
+        teamData.push(engineer);
         menuPrompt();
     })
     
@@ -115,7 +115,8 @@ const intPrompt = () => {
         let intId = intRes.intId;
         let intEmail = intRes.intEmail;
         let school = intRes.school;
-        const intern = new Intern(intName, intId, intEmail, school); 
+        const intern = new Intern(intName, intId, intEmail, school);
+        teamData.push(intern);
         menuPrompt();
     })
     
@@ -139,6 +140,9 @@ const menuPrompt = () => {
         }
 
         //create a print function for the data.
+        if (res.addTeamMember === "Everyone is here") {
+            console.log(teamData)
+        }
     })
     
 }
