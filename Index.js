@@ -66,16 +66,7 @@ const tmPrompt = () => {
         const manager = new Manager (tmName, tmId, tmEmail, office)
         teamData.push(manager);
         menuPrompt(); 
-        let m = generateTemplate();
-        let body = generateBody(m);
-
-        fs.writeFileSync('./dist/index.html', body, function(err) {
-            if(err) {
-                return console.log(err)
-            }
-            console.log("Your team data is created!")
-         
-        }) 
+        
 
     })
 }
@@ -227,7 +218,16 @@ const menuPrompt = () => {
         }
 
         if (res.addTeamMember === "Everyone is here") {
-           return
+            let m = generateTemplate();
+            let body = generateBody(m);
+            
+            fs.writeFileSync('./dist/index.html', body, function(err) {
+                if(err) {
+                    return console.log(err)
+                }
+                console.log("Your team data is created!")
+             
+            }) 
         }
     })
 }
@@ -237,6 +237,7 @@ const generateTemplate = function() {
     teamData.forEach(employee => {
         cardHtml += generateCard(employee);
     })
+    console.log("Your team data is created!")
     return cardHtml;
 }
 

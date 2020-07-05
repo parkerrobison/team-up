@@ -11,7 +11,7 @@ const generateCard = function(employee) {
             </div>
             <div class="card-body">
                 <ul class="list-group border list-group-flush">
-                    <li class="list-group-item">ID:${employee.getId()}</li>
+                    <li class="list-group-item">ID: ${employee.getId()}</li>
                     <li class="list-group-item">Email: <a href='mailto:${employee.getEmail()}'>${employee.getEmail()}</a></li>
                     <li class="list-group-item">
                     ${employee.getRole() === "Manager" ? "Office Number: " + employee.getOffice() : 
