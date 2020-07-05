@@ -1,0 +1,29 @@
+{
+  "name": "team-up",
+  "version": "1.0.0",
+  "description": "Team Profile Generator",
+  "main": "Index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "inquirer": "^7.3.0",
+    "save-dev": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parkerrobison/team-up.git"
+  },
+  "author": "Parker Robison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parkerrobison/team-up/issues"
+  },
+  "homepage": "https://github.com/parkerrobison/team-up#readme"
+}
