@@ -17,8 +17,10 @@ const generateBody = function(cards) {
 <h1 class="display-3 mx-auto " style="width: 300px;">Team up</h1>
 </div>
     <div class="container">
-        ${cards}
-    </div class="container">
+        <div class="row">
+            ${cards}
+        </div>
+    </div>
 </body>
 
 </html>`
