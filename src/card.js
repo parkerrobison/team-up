@@ -15,7 +15,7 @@ const generateCard = function(employee) {
                     <li class="list-group-item">Email: <a href='mailto:${employee.getEmail()}'>${employee.getEmail()}</a></li>
                     <li class="list-group-item">
                     ${employee.getRole() === "Manager" ? "Office Number: " + employee.getOffice() : 
-                    employee.getRole() === "Engineer" ? "Github: " + employee.getGithub():
+                    employee.getRole() === "Engineer" ? "Github: "  + employee.getGithub():
                      "School:" + employee.getSchool() }</li>
                 </ul>
             </div>
