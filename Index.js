@@ -3,8 +3,8 @@ const fs = require('fs');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
-const card = require('./src/card.js')
-const body = require('./src/body.js')
+const generateCard = require('./src/card.js')
+const generateBody = require('./src/body.js')
 const teamData= [];
 
 const tmPrompt = () => {
@@ -66,8 +66,18 @@ const tmPrompt = () => {
         const manager = new Manager (tmName, tmId, tmEmail, office)
         teamData.push(manager);
         menuPrompt(); 
+        let m = generateTemplate();
+        let body = generateBody(m);
+
+        fs.writeFileSync('./dist/index.html', body, function(err) {
+            if(err) {
+                return console.log(err)
+            }
+            console.log("Your team data is created!")
+         
+        }) 
+
     })
-    
 }
 
 
@@ -129,7 +139,7 @@ const engPrompt = () => {
         let github = engRes.github;
         const engineer = new Engineer (engName, engId, engEmail, github)
         teamData.push(engineer);
-        menuPrompt();
+        return menuPrompt();
     })
     
 }
@@ -192,7 +202,7 @@ const intPrompt = () => {
         let school = intRes.school;
         const intern = new Intern(intName, intId, intEmail, school);
         teamData.push(intern);
-        menuPrompt();
+        return menuPrompt();
     })
     
 }
@@ -207,23 +217,27 @@ const menuPrompt = () => {
         }
     ]).then(function(res){
         if(res.addTeamMember === "engineer"){
-            engPrompt();
+           return engPrompt();
+            
         }
-
+        
         if(res.addTeamMember === "intern"){
-            intPrompt();
+            return intPrompt();
+            
         }
 
-        //create a print function for the data.
         if (res.addTeamMember === "Everyone is here") {
-            console.log(teamData)
-
-
-            // generateCard();
-            // generateBody();
+           return
         }
     })
+}
     
+const generateTemplate = function() {
+    let cardHtml = ''
+    teamData.forEach(employee => {
+        cardHtml += generateCard(employee);
+    })
+    return cardHtml;
 }
 
 tmPrompt();

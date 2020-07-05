@@ -1,5 +1,4 @@
-const generateBody = function(cards) {
-    return `
+
     <!DOCTYPE html>
 <html lang="en">
 
@@ -17,10 +16,26 @@ const generateBody = function(cards) {
 <h1 class="display-3 mx-auto " style="width: 300px;">Team up</h1>
 </div>
     <main>
-        ${cards}
+        
+    <div class="card" style="width: 18rem;">
+            <div class="bg-primary text-white card-body">
+                <h3 class="card-title">Steve</h3>
+                <h4 class="card-text">
+                    <i class=fas fa-mug-hot></i>
+                     Manager
+                </h4>
+            </div>
+            <div class="card-body">
+                <ul class="list-group border list-group-flush">
+                    <li class="list-group-item">ID:12</li>
+                    <li class="list-group-item">Email: <a href='mailto:steve@sample.com'>steve@sample.com</a></li>
+                    <li class="list-group-item">
+                    Office Number: steve</li>
+                </ul>
+            </div>
+        </div>
+    
     </main>
 </body>
 
-</html>`
-}
-module.exports = generateBody;
+</html>
