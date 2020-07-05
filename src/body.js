@@ -16,9 +16,9 @@ const generateBody = function(cards) {
 <div class="jumbotron bg-danger text-white">
 <h1 class="display-3 mx-auto " style="width: 300px;">Team up</h1>
 </div>
-    <main>
+    <div class="container">
         ${cards}
-    </main>
+    </div class="container">
 </body>
 
 </html>`
