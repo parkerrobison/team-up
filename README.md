@@ -24,6 +24,7 @@
   ## Usage 
 
   From your CLI program navigate to the root of this folder and type in 'node index.js'. From there follow the prompts.
+  Video walkthrough: https://drive.google.com/file/d/12e1-Ph8i4lIpbuW543KCJ446wbZZ1Af8/view
   
    
   ## License
@@ -36,7 +37,10 @@
   
 
   ## Questions
-  If you run into any errors or have further questions about this program, you can contact here: 
-  *github: https://github.com/parkerrobison 
-  *email: parkerobison@gmail.com.
+  If you run into any errors or have further questions about this program, you can contact here:
+  
+   -github: https://github.com/parkerrobison 
+   
+   -email: parkerobison@gmail.com.
+  
   Please reference the project in question in the message. Thank you.
