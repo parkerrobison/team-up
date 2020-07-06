@@ -24,7 +24,7 @@
   ## Usage 
 
   From your CLI program navigate to the root of this folder and type in 'node index.js'. From there follow the prompts.
-  Video walkthrough: https://drive.google.com/file/d/12e1-Ph8i4lIpbuW543KCJ446wbZZ1Af8/view
+  Video walkthrough: https://drive.google.com/file/d/1LFr30VsPJhjyHVOJpKU9K6UD0f7v8fJR/view
   
    
   ## License
