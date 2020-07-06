@@ -5,8 +5,10 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const generateCard = require('./src/card.js')
 const generateBody = require('./src/body.js')
+// objects created from inquirer prompts are pushed to this global array.
 const teamData = [];
 
+// prompt for the team manager. This also starts the program.
 const tmPrompt = () => {
     inquirer.prompt([{
             type: 'input',
@@ -57,6 +59,7 @@ const tmPrompt = () => {
             }
         }
     ]).then(function (tmRes) {
+        // this promise takes the answers from the prompt and creates an object to send to teamData
         let tmName = tmRes.tmName;
         let tmId = tmRes.tmId;
         let tmEmail = tmRes.tmEmail;
@@ -69,7 +72,7 @@ const tmPrompt = () => {
     })
 }
 
-
+// engineer prompt
 const engPrompt = () => {
     inquirer.prompt([{
             type: 'input',
@@ -120,6 +123,7 @@ const engPrompt = () => {
             }
         }
     ]).then(function (engRes) {
+        // this promise takes the answers from the prompt and creates an object to send to teamData
         let engName = engRes.engName;
         let engId = engRes.engId;
         let engEmail = engRes.engEmail;
@@ -131,6 +135,7 @@ const engPrompt = () => {
 
 }
 
+// intern prompt
 const intPrompt = () => {
     inquirer.prompt([{
             type: 'input',
@@ -181,6 +186,7 @@ const intPrompt = () => {
             }
         }
     ]).then(function (intRes) {
+        // this promise takes the answers from the prompt and creates an object to send to teamData
         let intName = intRes.intName;
         let intId = intRes.intId;
         let intEmail = intRes.intEmail;
@@ -192,6 +198,7 @@ const intPrompt = () => {
 
 }
 
+// this prompt ask and then directs the user to their choice. 
 const menuPrompt = () => {
     inquirer.prompt([{
         type: 'list',
@@ -210,9 +217,12 @@ const menuPrompt = () => {
         }
 
         if (res.addTeamMember === "Everyone is here") {
+            
             let m = generateTemplate();
+            //info from generateTemplate is added to the body
             let body = generateBody(m);
 
+            // writes/overwrites the file at this location. 
             fs.writeFileSync('./dist/index.html', body, function (err) {
                 if (err) {
                     return console.log(err)
@@ -222,6 +232,7 @@ const menuPrompt = () => {
     })
 }
 
+// this function loops over teamData and add the info to the card.js file for each object.
 const generateTemplate = function () {
     let cardHtml = ''
     teamData.forEach(employee => {
