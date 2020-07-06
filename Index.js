@@ -197,14 +197,14 @@ const menuPrompt = () => {
         type: 'list',
         name: 'addTeamMember',
         message: 'Who else is a part of this team?',
-        choices: ['engineer', 'intern', 'Everyone is here']
+        choices: ['Engineer', 'Intern', 'Everyone is here']
     }]).then(function (res) {
-        if (res.addTeamMember === "engineer") {
+        if (res.addTeamMember === "Engineer") {
             return engPrompt();
 
         }
 
-        if (res.addTeamMember === "intern") {
+        if (res.addTeamMember === "Intern") {
             return intPrompt();
 
         }
