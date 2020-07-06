@@ -6,7 +6,7 @@
   
   Team up is a command-line interface program that allows a user to enter information about their teammates so that all of the's info can be visible in one place. From the command line the user answers questions from a list of prompts. Their answers will display on a browser. The default email program for the user will open and populate their teammates email when they click on the email in the browser. If an employee has a github account the browser will open their Github profile in a new tab.
 
-    ![preview](src/Capture.JPG)
+![preview](./src/img/Capture.JPG)
   
   
   ## Table of Contents
