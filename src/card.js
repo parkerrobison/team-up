@@ -1,6 +1,6 @@
 const generateCard = function(employee) {
     return `
-    <div class="card" style="width: 18rem;">
+    <div class="card m-2" style="width: 18rem;">
             <div class="bg-primary text-white card-body">
                 <h3 class="card-title">${employee.getName()}</h3>
                 <h4 class="card-text">
@@ -15,8 +15,8 @@ const generateCard = function(employee) {
                     <li class="list-group-item">Email: <a href='mailto:${employee.getEmail()}'>${employee.getEmail()}</a></li>
                     <li class="list-group-item">
                     ${employee.getRole() === "Manager" ? "Office Number: " + employee.getOffice() : 
-                    employee.getRole() === "Engineer" ? "Github: " + employee.getGithub():
-                     "School:" + employee.getSchool() }</li>
+                    employee.getRole() === "Engineer" ? `Github: <a href='http://github.com/${employee.getGithub()}' target="_blank"> ${employee.getGithub()} </a>` :
+                     "School: " + employee.getSchool() }</li>
                 </ul>
             </div>
         </div>

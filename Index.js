@@ -5,11 +5,10 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const generateCard = require('./src/card.js')
 const generateBody = require('./src/body.js')
-const teamData= [];
+const teamData = [];
 
 const tmPrompt = () => {
-    inquirer.prompt([
-        {
+    inquirer.prompt([{
             type: 'input',
             name: 'tmName',
             message: 'What is the name of the Team Manager?',
@@ -56,29 +55,27 @@ const tmPrompt = () => {
                     console.log('Please enter the team manager\'s office number.')
                 }
             }
-        } 
-    ]
-    ).then(function(tmRes){
+        }
+    ]).then(function (tmRes) {
         let tmName = tmRes.tmName;
         let tmId = tmRes.tmId;
         let tmEmail = tmRes.tmEmail;
         let office = tmRes.office;
-        const manager = new Manager (tmName, tmId, tmEmail, office)
+        const manager = new Manager(tmName, tmId, tmEmail, office)
         teamData.push(manager);
-        menuPrompt(); 
-        
+        menuPrompt();
+
 
     })
 }
 
 
 const engPrompt = () => {
-     inquirer.prompt([
-        {
+    inquirer.prompt([{
             type: 'input',
             name: 'engName',
             message: 'What is the name of the engineer?',
-             validate: engNameInput => {
+            validate: engNameInput => {
                 if (engNameInput) {
                     return true;
                 } else {
@@ -90,7 +87,7 @@ const engPrompt = () => {
             type: 'number',
             name: 'engId',
             message: 'What is the employee id of the engineer?',
-             validate: engIdInput => {
+            validate: engIdInput => {
                 if (engIdInput) {
                     return true;
                 } else {
@@ -102,7 +99,7 @@ const engPrompt = () => {
             type: 'input',
             name: 'engEmail',
             message: 'What is their email address?',
-             validate: engEmailInput => {
+            validate: engEmailInput => {
                 if (engEmailInput) {
                     return true;
                 } else {
@@ -114,7 +111,7 @@ const engPrompt = () => {
             type: 'input',
             name: 'github',
             message: 'What is their github username?',
-             validate: ghInput => {
+            validate: ghInput => {
                 if (ghInput) {
                     return true;
                 } else {
@@ -122,22 +119,20 @@ const engPrompt = () => {
                 }
             }
         }
-    ]
-    ).then(function(engRes){
+    ]).then(function (engRes) {
         let engName = engRes.engName;
         let engId = engRes.engId;
         let engEmail = engRes.engEmail;
         let github = engRes.github;
-        const engineer = new Engineer (engName, engId, engEmail, github)
+        const engineer = new Engineer(engName, engId, engEmail, github)
         teamData.push(engineer);
         return menuPrompt();
     })
-    
+
 }
 
 const intPrompt = () => {
-     inquirer.prompt([
-        {
+    inquirer.prompt([{
             type: 'input',
             name: 'intName',
             message: 'What is the name of the intern?',
@@ -153,7 +148,7 @@ const intPrompt = () => {
             type: 'number',
             name: 'intId',
             message: 'What is the employee id of the intern?',
-             validate: intIdInput => {
+            validate: intIdInput => {
                 if (intIdInput) {
                     return true;
                 } else {
@@ -165,7 +160,7 @@ const intPrompt = () => {
             type: 'input',
             name: 'intEmail',
             message: 'What is their email address?',
-             validate: intEmailInput => {
+            validate: intEmailInput => {
                 if (intEmailInput) {
                     return true;
                 } else {
@@ -177,7 +172,7 @@ const intPrompt = () => {
             type: 'input',
             name: 'school',
             message: 'What school are they attending?',
-             validate: schoolInput => {
+            validate: schoolInput => {
                 if (schoolInput) {
                     return true;
                 } else {
@@ -185,8 +180,7 @@ const intPrompt = () => {
                 }
             }
         }
-    ]
-    ).then(function(intRes){
+    ]).then(function (intRes) {
         let intName = intRes.intName;
         let intId = intRes.intId;
         let intEmail = intRes.intEmail;
@@ -195,49 +189,45 @@ const intPrompt = () => {
         teamData.push(intern);
         return menuPrompt();
     })
-    
+
 }
 
 const menuPrompt = () => {
-    inquirer.prompt([
-        {
-            type: 'list',
-            name: 'addTeamMember',
-            message: 'Who else is a part of this team?',
-            choices: ['engineer', 'intern', 'Everyone is here']
+    inquirer.prompt([{
+        type: 'list',
+        name: 'addTeamMember',
+        message: 'Who else is a part of this team?',
+        choices: ['Engineer', 'Intern', 'Everyone is here']
+    }]).then(function (res) {
+        if (res.addTeamMember === "Engineer") {
+            return engPrompt();
+
         }
-    ]).then(function(res){
-        if(res.addTeamMember === "engineer"){
-           return engPrompt();
-            
-        }
-        
-        if(res.addTeamMember === "intern"){
+
+        if (res.addTeamMember === "Intern") {
             return intPrompt();
-            
+
         }
 
         if (res.addTeamMember === "Everyone is here") {
             let m = generateTemplate();
             let body = generateBody(m);
-            
-            fs.writeFileSync('./dist/index.html', body, function(err) {
-                if(err) {
+
+            fs.writeFileSync('./dist/index.html', body, function (err) {
+                if (err) {
                     return console.log(err)
                 }
-                console.log("Your team data is created!")
-             
-            }) 
+            })
         }
     })
 }
-    
-const generateTemplate = function() {
+
+const generateTemplate = function () {
     let cardHtml = ''
     teamData.forEach(employee => {
         cardHtml += generateCard(employee);
     })
-    console.log("Your team data is created!")
+    console.log("Your team has been assembled! Checkout the index.html file in the dist folder.")
     return cardHtml;
 }
 
